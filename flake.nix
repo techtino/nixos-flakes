@@ -7,9 +7,10 @@
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager,  ... }@inputs:
+  outputs = { self, nixpkgs, sops-nix, home-manager,  ... }@inputs:
   let
     inherit (self) outputs;
     system = "x86_64-linux";
@@ -24,6 +25,7 @@
           ./common
 	  ./desktop-environment/kde
 	  ./device-type/vm
+	  sops-nix.nixosModules.sops
         ];
       };
     };
