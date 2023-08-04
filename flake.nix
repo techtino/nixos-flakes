@@ -22,8 +22,8 @@
 	specialArgs = { inherit inputs outputs; };
         modules = [
           ./common
-	  ./desktop-environments/kde
-	  ./device-types/vm.nix
+	  ./desktop-environment/kde
+	  ./device-type/vm
         ];
       };
     };
