@@ -128,7 +128,22 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  #system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
+
+  # This will add secrets.yml to the nix stre
+  # You can avoid this by adding a string to the full path instead, i.e.
+  # sops.defaultSopsFile = "/root/.sops/secrets/example.yaml";
+  sops.defaultSopsFile = ../secrets/online_services.yaml;
+  # This will automatically import SSH keys as age keys
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  # This is using an age key that is expected to already be in the filesystem
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  # This will generate a new key if the key specified above does not exist
+  sops.age.generateKey = true;
+  # This is the actual specification of the secrets.
+  sops.secrets.tailscale_key = {};
+  sops.secrets.git_token = {};
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -143,18 +158,5 @@
       };
     };
   };
-  # This will add secrets.yml to the nix stre
-  # You can avoid this by adding a string to the full path instead, i.e.
-  # sops.defaultSopsFile = "/root/.sops/secrets/example.yaml";
-  sops.defaultSopsFile = ../secrets/online_services.yaml;
-  # This will automatically import SSH keys as age keys
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  # This is using an age key that is expected to already be in the filesystem
-  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-  # This will generate a new key if the key specified above does not exist
-  sops.age.generateKey = true;
-  # This is the actual specification of the secrets.
-  sops.secrets.tailscale_key = {};
-
 
 }
