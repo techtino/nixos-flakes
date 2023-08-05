@@ -46,7 +46,7 @@
 
       # otherwise authenticate with tailscale
       echo "Authenticating with Tailscale ..."
-      ${tailscale}/bin/tailscale up --auth-key file:/etc/tailscale/tskey-reusable
+      ${tailscale}/bin/tailscale up --auth-key file:${config.sops.secrets.tailscale_key.path}
     '';
   };
 }
