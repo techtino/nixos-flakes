@@ -25,6 +25,7 @@
 	  configFile = {
 	    "plasmashellrc"."PlasmaViews.Panel 2"."floating" = 1;
 	    "kwinrc"."TabBox"."LayoutName" = "thumbnail_grid";
+	    "ksmserverrc"."General"."confirmLogout" = false;
 	  };
 	};
       };
