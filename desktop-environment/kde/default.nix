@@ -22,7 +22,10 @@
             key = "Meta+Shift+Space";
             command = "konsole";
           };
-	  configFile."plasmashellrc"."PlasmaViews.Panel 2"."floating" = 1;
+	  configFile = {
+	    "plasmashellrc"."PlasmaViews.Panel 2"."floating" = 1;
+	    "kwinrc"."TabBox"."LayoutName" = "thumbnail_grid";
+	  };
 	};
       };
     };
