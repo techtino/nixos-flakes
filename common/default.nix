@@ -142,7 +142,6 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
   sops.secrets.tailscale_key = {};
-  sops.secrets.git_token = {};
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
