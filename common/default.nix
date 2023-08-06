@@ -143,7 +143,6 @@
   # This is the actual specification of the secrets.
   sops.secrets.tailscale_key = {};
   sops.secrets.git_token = {};
-  sops.secrets.git_token.owner = config.users.users.techtino.name;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -155,12 +154,7 @@
           enable = true;
           userName  = "techtino";
           userEmail = "techtino74@gmail.com";
-	  extraConfig = {
-            credential = {
-              helper = "store --file ${config.sops.secrets.git_token.path}";
-	    };
-	  };
-        };
+	};
       };
     };
   };
