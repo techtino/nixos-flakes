@@ -6,12 +6,6 @@
   # allow the Tailscale UDP port through the firewall
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
 
-  # Tailscale keys
-  # Create a secrets location for your tailscale auth keys.  Create a reusable key at
-  # https://login.tailscale.com/admin/settings/authkeys, save it in a file, and put that file in your secrets location
-  # If you're running an "Erase Your Darlings" setup, don't forget to persist your tailscale secrets location  
-  environment.etc."tailscale".source = "/etc/tailscale/";
-  
   # Tailscale autu-auth config, based on:
   # https://tailscale.com/blog/nixos-minecraft/
   services.tailscale.enable = true;
