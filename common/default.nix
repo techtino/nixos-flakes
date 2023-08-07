@@ -157,5 +157,6 @@
       };
     };
   };
+  programs.dconf.enable = true;
 
 }

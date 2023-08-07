@@ -27,7 +27,7 @@
 	specialArgs = { inherit inputs outputs; };
         modules = [
           ./common
-	  ./desktop-environment/kde
+	  ./desktop-environment/gnome
 	  ./device-type/vm
 	  sops-nix.nixosModules.sops
         ];
