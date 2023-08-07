@@ -28,6 +28,8 @@
 	    "ksmserverrc"."General"."confirmLogout" = false;
 	  };
 	};
+	gtk.enable = true;
+        gtk.theme.name = "Breeze";
       };
     };
   };
