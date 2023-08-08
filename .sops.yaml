@@ -5,9 +5,11 @@
 keys:
   - &admin_techtino age1tzwcgd2t0cnvs75g0lr6y6z253zc65dw0lqjema7h7c740zg5q0sjdjz6s
   - &server_vm age1rkk4ylravn3jdwzlk8mev9r6htzxg9cczcjl9rdl3mtkk43h8qhs0r3ay6
+  - &server_laptop age19lw6xxeem4tlzs0cdl7azfe0njygdhhrn3mqxk23q4zdfuu62yaqxefjqg
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
     - age:
       - *admin_techtino
       - *server_vm
+      - *server_laptop
