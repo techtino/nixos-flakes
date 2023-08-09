@@ -12,6 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+   # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   fileSystems."/" =
     { device = "/dev/vda1";

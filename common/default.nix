@@ -10,10 +10,6 @@
     ./tailscale.nix
   ];
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
   boot.plymouth.enable = true;
   boot.initrd.systemd.enable = true;
   boot.kernelParams = ["quiet"];
@@ -158,5 +154,13 @@
     };
   };
   programs.dconf.enable = true;
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    font-awesome
+  ];
 
 }
