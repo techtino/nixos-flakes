@@ -6,6 +6,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -18,8 +20,27 @@
           "org/gnome/desktop/wm/preferences" = {
             button-layout = "appmenu:minimize,maximize,close";
           };
+          "org/gnome/desktop/peripherals/touchpad" = {
+            click-method = "areas";
+          };
+          "org/gnome/tweaks" = {
+            show-extensions-notice = "false";
+          };
         };
+        # Install basic gnome extensions, these are disabled and are user enableable for now only
+        home.packages = with pkgs.gnomeExtensions; [
+          gsconnect
+          appindicator
+          forge
+        ];
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    gnome3.gnome-tweaks
+    gnome-extension-manager
+  ];
+
+
 }

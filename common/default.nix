@@ -84,7 +84,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      chromium 
+      chromium
+      neovim
+      vim
+      pciutils 
     #  thunderbird
     ];
   };
@@ -162,5 +165,9 @@
     liberation_ttf
     font-awesome
   ];
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL="1";
+  };
 
 }

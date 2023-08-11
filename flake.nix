@@ -40,7 +40,7 @@
 	      specialArgs = { inherit inputs outputs; };
         modules = [
           ./common
-          ./desktop-environment/hyprland
+          ./desktop-environment/gnome
           ./device-type/laptop
           sops-nix.nixosModules.sops
           ./custom/disable-nvidia.nix
