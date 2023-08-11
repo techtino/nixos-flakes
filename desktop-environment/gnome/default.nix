@@ -20,12 +20,23 @@
           "org/gnome/desktop/wm/preferences" = {
             button-layout = "appmenu:minimize,maximize,close";
           };
+          "org/gnome/desktop/wm/keybindings" = {
+            close = "<Super>q";
+          };
           "org/gnome/desktop/peripherals/touchpad" = {
             click-method = "areas";
           };
           "org/gnome/tweaks" = {
             show-extensions-notice = "false";
           };
+	  "org/gnome/settings-daemon/plugins/media-keys" = {
+	    www = "<Super>Return";
+	  };
+	  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+            binding = "<Shift><Super>Return";
+	    command = "kgx";
+	    name = "Launch Terminal";
+	  };
         };
         # Install basic gnome extensions, these are disabled and are user enableable for now only
         home.packages = with pkgs.gnomeExtensions; [

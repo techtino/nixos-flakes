@@ -26,6 +26,8 @@
 	    "plasmashellrc"."PlasmaViews.Panel 2"."floating" = 1;
 	    "kwinrc"."TabBox"."LayoutName" = "thumbnail_grid";
 	    "ksmserverrc"."General"."confirmLogout" = false;
+            "kcminputrc"."Libinput.1267.12419.ETD2303:00 04F3:3083 Touchpad"."NaturalScroll" = true;
+            "kcminputrc"."Libinput.1267.12419.ETD2303:00 04F3:3083 Touchpad"."TapToClick" = true;
 	  };
 	};
 	gtk.enable = true;
@@ -33,4 +35,7 @@
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+    libsForQt5.discover
+  ];
 }
