@@ -3,9 +3,18 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
-  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    settings = {
+      General = {
+        DisplayServer = "wayland";
+        InputMethod = "";
+      };
+      Wayland.CompositorCommand = "${pkgs.weston}/bin/weston --shell=fullscreen-shell.so";
+    };
+  };
   home-manager = {
     sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
     extraSpecialArgs = { inherit inputs; };
